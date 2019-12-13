@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/roadColor"
+    android:keepScreenOn="true"
+    tools:context=".Game">
+
+
+
+    <LinearLayout
+        android:id="@+id/game_LO_coinright"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="12dp"
+        android:layout_toEndOf="@id/game_LO_line4"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight2"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight3"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight4"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight5"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight6"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight7"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight8"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRight9"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_coinleftm"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_toEndOf="@id/game_LO_line1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm2"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm3"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm4"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm5"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm6"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm7"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm8"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfetm9"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/game_LO_coinleft"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="12dp"
+        android:layout_toStartOf="@id/game_LO_line1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet2"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet3"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet4"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet5"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet6"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet7"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet8"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinlfet9"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_coinmid"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:layout_toEndOf="@id/game_LO_line2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid2"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid3"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid4"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid5"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid6"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid7"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid8"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinmid9"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_coinrightmid"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_toEndOf="@id/game_LO_line3"
+        android:layout_marginLeft="12dp"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm1"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm2"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm3"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm4"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm5"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm6"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm7"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm8"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+        <ImageView
+            android:id="@+id/game_IV_coinRightm9"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_coin" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/game_LO_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/game_LO_left_mid"
+        android:orientation="vertical"
+        android:paddingRight="5dp"
+        android:layout_marginTop="23dp" >
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/game_LO_mid"
+        android:orientation="vertical"
+        android:layout_marginTop="23dp"
+        android:paddingRight="5dp">
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_line3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/game_LO_right_mid"
+        android:orientation="vertical"
+        android:layout_marginTop="23dp"
+        android:paddingRight="5dp">
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+
+        android:layout_toLeftOf="@id/game_LO_left_mid"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft1"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft4"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft5"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft6"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft7"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft8"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeft9"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_carLeft"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_line4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/game_LO_right"
+        android:orientation="vertical"
+        android:layout_marginTop="23dp"
+        android:paddingRight="5dp">
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />Ò
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+        <View
+            android:layout_width="5dip"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/game_LO_left_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_toLeftOf="@id/game_LO_mid"
+        android:orientation="vertical"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM1"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM4"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM5"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM6"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM7"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM8"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierLeftM9"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_carLeftM"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/game_LO_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid1"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid4"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid5"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid6"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid7"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid8"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierMid9"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_carMid"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/game_LO_right_mid"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_toRightOf="@id/game_LO_mid"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM1"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM4"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM5"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM6"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM7"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM8"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRightM9"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_carRightM"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/game_LO_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_toEndOf="@id/game_LO_right_mid"
+        android:orientation="vertical"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight1"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight2"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight3"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight4"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight5"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight6"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight7"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight8"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+        <ImageView
+            android:id="@+id/game_IV_barrierRight9"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/barrier" />
+
+
+        <ImageView
+            android:id="@+id/game_IV_carRight"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/game_RL_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/game_IV_heart1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <ImageView
+            android:id="@+id/game_IV_heart2"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/game_IV_heart1"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <ImageView
+            android:id="@+id/game_IV_heart3"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/game_IV_heart2"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <TextView
+            android:id="@+id/game_TV_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:text="Barrier Passed:"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/game_TV_msgcoin"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+            android:text="Coins:"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/game_TV_scorecoin"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/game_TV_msgcoin"
+            android:text="0"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/game_TV_score"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/game_TV_msg"
+            android:text="0"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_leftArrow"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:paddingLeft="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/left" />
+
+        <ImageView
+            android:id="@+id/game_IV_rightArrow"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:paddingRight="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/right"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/game_IV_carshcar"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:id="@+id/game_IV_one"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_one" />
+
+        <ImageView
+            android:id="@+id/game_IV_tow"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_two" />
+
+        <ImageView
+            android:id="@+id/game_IV_three"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_three" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

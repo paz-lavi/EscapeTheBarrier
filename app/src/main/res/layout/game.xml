@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/roadColor"
+    android:keepScreenOn="true"
+    tools:context=".Game">
+
+    <LinearLayout
+        android:id="@+id/game_LO_cars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingBottom="60dp">
+
+        <ImageView
+            android:id="@+id/game_IV_carLeft"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+
+        <ImageView
+            android:id="@+id/game_IV_carMid"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+
+        <ImageView
+            android:id="@+id/game_IV_carRight"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/game_RL_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/game_IV_heart1"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <ImageView
+            android:id="@+id/game_IV_heart2"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/game_IV_heart1"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <ImageView
+            android:id="@+id/game_IV_heart3"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/game_IV_heart2"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_launcher_heart"
+
+            />
+
+        <TextView
+            android:id="@+id/game_TV_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:text="Barrier Passed:"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/game_TV_score"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@id/game_TV_msg"
+            android:text="0"
+            android:textColor="@color/textColor"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/game_RL_barrier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="80dp">
+
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+          >
+
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line3"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line4"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier1">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line5"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line6"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier2"
+            >
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line7"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line8"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier3">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line9"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line10"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight4"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier4">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line11"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line12"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight5"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier5">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line13"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line14"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight6"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier6">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft7"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line15"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid7"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line16"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight7"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier7">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft8"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line17"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid8"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line18"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight8"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier8">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft9"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line19"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid9"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line20"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight9"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier9">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft10"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line21"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid10"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line22"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight10"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier10">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft11"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line23"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid11"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line24"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight11"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier11">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft12"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line25"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid12"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line26"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight12"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier12">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft13"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line27"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid13"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line28"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight13"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier13">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft14"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line29"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid14"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line30"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight14"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/game_LO_barrier15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/game_LO_barrier14">
+
+            <ImageView
+                android:id="@+id/game_IV_barrierLeft15"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line31"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierMid15"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+            <View
+                android:id="@+id/game_VIEW_line32"
+                android:layout_width="5dip"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/game_IV_barrierRight15"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/barrier" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+
+        >
+
+        <ImageView
+            android:id="@+id/game_IV_leftArrow"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:paddingLeft="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/left" />
+
+        <ImageView
+            android:id="@+id/game_IV_rightArrow"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:paddingRight="35dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/right"
+
+            />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/game_IV_carshcar"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/car" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:id="@+id/game_IV_one"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_one" />
+
+        <ImageView
+            android:id="@+id/game_IV_tow"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_two" />
+
+        <ImageView
+            android:id="@+id/game_IV_three"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_game_three" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="textColor">#212FAF</color>
+    <color name="backgroundColor">#F7E34C</color>
+    <color name="roadColor">#929090</color>
+    <color name="white">#FFFFFF</color>
+    <color name="btColor">#5161D8</color>
+    <color name="btText">#F5E261</color>
+
+</resources>
