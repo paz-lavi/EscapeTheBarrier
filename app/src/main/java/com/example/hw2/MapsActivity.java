@@ -1,53 +1,67 @@
 package com.example.hw2;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
     private ArrayList<Record> records;
     private GoogleMap mMap;
     private LatLng[] locations;
+    private ListView maps_LSTV_list;
+    private Button maps_BT_back;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        Gson gson = new Gson();
-        String str = "";
-        Bundle b = getIntent().getExtras();
-        if (b != null)
-            str = b.getString(Constants.RECORD_ARRAY_KEY);
-        if (str != "") {
-            Log.d("ssstt", "str = " + str);
-            records = gson.fromJson(str, new TypeToken<ArrayList<Record>>() {
-            }.getType());
-            Collections.sort(records);
+        RecordManager recordManager = new RecordManager(MapsActivity.this);
+        records = recordManager.getRecords();
 
-        }
+
+        maps_LSTV_list = findViewById(R.id.maps_LSTV_list);
+        maps_BT_back = findViewById(R.id.maps_BT_back);
+        maps_BT_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         locations = new LatLng[records.size()];
+        fillPlacesList();
+
 
     }
 
@@ -73,11 +87,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locations[0], 18.0f));
 
+    }
+
+
+    private AdapterView.OnItemClickListener listClickedHandler = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locations[position], 18.0f));
+
+        }
+    };
+
+    private void fillPlacesList() {
+        // Set up an ArrayAdapter to convert likely places into TextViews to populate the ListView
+        ArrayAdapter<Record> placesAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, records);
+        maps_LSTV_list.setAdapter(placesAdapter);
+        maps_LSTV_list.setOnItemClickListener(listClickedHandler);
     }
 }

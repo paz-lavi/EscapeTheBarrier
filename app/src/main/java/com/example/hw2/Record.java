@@ -3,9 +3,9 @@ package com.example.hw2;
 
 import java.util.Date;
 
-public class Record  implements Comparable<Record>{
-   private String Name;
-   private int Score;
+public class Record implements Comparable<Record> {
+    private String Name;
+    private int Score;
     private double Latitude;
     private double Longitude;
     private Date date;
@@ -48,10 +48,8 @@ public class Record  implements Comparable<Record>{
 
     @Override
     public String toString() {
-        return
-                "Name='" + Name  +
-                ", Score=" + Score +
-                ", date=" + date ;
+        return String.format("Name: %-20s", Name) + String.format("Score: %-20s", Score);
+
     }
 
     public void setScore(int score) {
@@ -66,6 +64,6 @@ public class Record  implements Comparable<Record>{
 
     @Override
     public int compareTo(Record o) {
-        return  o.getScore() - this.getScore() ;
+        return o.getScore() - this.getScore();
     }
 }

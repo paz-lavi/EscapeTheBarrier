@@ -37,9 +37,9 @@ public class GPS_Service extends Service {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                Intent i = new Intent("location_update");
-                i.putExtra("longitude",location.getLongitude());
-                i.putExtra("latitude" , location.getLatitude());
+                Intent i = new Intent(Constants.ACTION_KEY);
+                i.putExtra(Constants.LONGITUDE_KEY, location.getLongitude());
+                i.putExtra(Constants.LATITUDE_KEY, location.getLatitude());
                 sendBroadcast(i);
             }
 
@@ -64,7 +64,7 @@ public class GPS_Service extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         //noinspection MissingPermission
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,100,0,listener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, listener);
 
     }
 
