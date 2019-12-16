@@ -83,7 +83,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         for (int i = 0; i < locations.length; i++) {
             r = records.get(i);
             locations[i] = new LatLng(r.getLatitude(), r.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(locations[i]).title("" + i).icon(BitmapDescriptorFactory.defaultMarker()));
+            mMap.addMarker(new MarkerOptions().position(locations[i]).title("" + (i + 1) + ": " + r.toString()).icon(BitmapDescriptorFactory.defaultMarker()));
 
         }
 

@@ -3,6 +3,7 @@ package com.example.hw2;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -11,8 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.gson.Gson;
 
 public class GameOver extends AppCompatActivity {
 
@@ -23,9 +22,9 @@ public class GameOver extends AppCompatActivity {
     private double longitude;
     private int score = 0;
     private int coins = 0;
-    private Gson gson;
     private RecordManager recordManager;
     private final String COINS_STR = " Coins";
+    private boolean new_high_score;
 
 
     @SuppressLint("SetTextI18n")
@@ -45,11 +44,12 @@ public class GameOver extends AppCompatActivity {
         gameover_EDT_name = findViewById(R.id.gameover_EDT_name);
         gameover_BT_save = findViewById(R.id.gameover_BT_save);
 
-        gson = new Gson();
 
 
         Bundle b = getIntent().getExtras();
         if (b != null) {
+            Log.d("latlag", "n kbkn");
+
             score = b.getInt(Constants.SCORE_KEY);
             coins = b.getInt(Constants.COIN_KEY);
             latitude = b.getDouble(Constants.LATITUDE_KEY, latitude);
@@ -93,14 +93,13 @@ public class GameOver extends AppCompatActivity {
 
     private void click() {
 
-        Record r = new Record(gameover_EDT_name.getText().toString(), coins, latitude, longitude);
         Intent i = new Intent(GameOver.this, MapsActivity.class);
-        Bundle b = new Bundle();
-        String str = gson.toJson(r);
-        b.putString(Constants.RECORD_KEY, str);
-        i.putExtras(b);
 
-        recordManager.addRecord(r);
+        if (new_high_score) {
+            Record r = new Record(gameover_EDT_name.getText().toString(), coins, latitude, longitude);
+            Log.d("latlag", "lat = " + latitude + " log= " + longitude);
+            recordManager.addRecord(r);
+        }
         GameOver.this.startActivity(i);
         finish();
 
@@ -109,14 +108,17 @@ public class GameOver extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (score > recordManager.getLastPlace()) {
+        if (coins > recordManager.getLastPlace() || recordManager.getRecords().size() < Constants.MAX_RECORDS) {
             gameover_LBL_newrecord.setVisibility(View.VISIBLE);
             gameover_EDT_name.setVisibility(View.VISIBLE);
             gameover_BT_save.setVisibility(View.VISIBLE);
+            new_high_score = true;
         } else {
             gameover_LBL_newrecord.setVisibility(View.INVISIBLE);
             gameover_EDT_name.setVisibility(View.INVISIBLE);
-            gameover_BT_save.setVisibility(View.INVISIBLE);
+            gameover_BT_save.setText(Constants.HIGH_SCORES);
+            new_high_score = false;
+
         }
     }
 }

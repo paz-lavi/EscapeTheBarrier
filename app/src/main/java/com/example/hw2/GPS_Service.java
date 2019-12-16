@@ -15,13 +15,15 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-/**
- * Created by filipp on 6/16/2016.
- */
-public class GPS_Service extends Service {
 
+public class GPS_Service extends Service {
     private LocationListener listener;
     private LocationManager locationManager;
+    private Location mLocation;
+    private double mLatitude;
+    private double mLongitude;
+
+
 
     @Nullable
     @Override
@@ -32,7 +34,7 @@ public class GPS_Service extends Service {
     @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {
-    Log.d("gpssss" , "class open ");
+        Log.d("gpssss", "class open ");
 
         listener = new LocationListener() {
             @Override
@@ -66,6 +68,15 @@ public class GPS_Service extends Service {
         //noinspection MissingPermission
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, listener);
 
+        mLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+        if (mLocation != null) {
+
+            Intent i = new Intent(Constants.ACTION_KEY);
+            i.putExtra(Constants.LONGITUDE_KEY, mLocation.getLongitude());
+            i.putExtra(Constants.LATITUDE_KEY, mLocation.getLatitude());
+            sendBroadcast(i);
+        }
     }
 
     @Override

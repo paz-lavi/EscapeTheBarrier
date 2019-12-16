@@ -7,6 +7,7 @@
     <color name="backgroundColor">#F7E34C</color>
     <color name="roadColor">#929090</color>
     <color name="white">#FFFFFF</color>
+    <color name="shoulder">#FFEA00</color>
     <color name="btColor">#5161D8</color>
     <color name="btBackColor">#212FAF</color>
     <color name="btText">#F5E261</color>

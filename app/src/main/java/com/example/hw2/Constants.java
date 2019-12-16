@@ -14,6 +14,7 @@ public class Constants {
     final static int MOTION_GAME = 2;
     final static int MAX_RECORDS = 10;
     static final String FILE_NAME = "EscapeTheBarrierHIGHSCORES.txt";
+    static final String HIGH_SCORES = "HIGH SCORES";
 
 
 }

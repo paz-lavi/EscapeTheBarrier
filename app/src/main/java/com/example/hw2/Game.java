@@ -17,7 +17,6 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -237,23 +236,12 @@ public class Game extends AppCompatActivity {
         barrier = new ConcurrentLinkedQueue[]{new ConcurrentLinkedQueue<ImageView>(), new ConcurrentLinkedQueue<ImageView>(),
                 new ConcurrentLinkedQueue<ImageView>(), new ConcurrentLinkedQueue<ImageView>()
                 , new ConcurrentLinkedQueue<ImageView>()};
-        Log.d("pppt", "barrier size = " + barrier.length);
-        Log.d("pppt", "ava col size = " + avatars.length);
-        Log.d("pppt", "ava 0 rows size = " + avatars[0].length);
-        Log.d("pppt", "ava 1 rows size = " + avatars[1].length);
-        Log.d("pppt", "ava 2 rows size = " + avatars[2].length);
-        Log.d("pppt", "ava 3 rows size = " + avatars[3].length);
-        Log.d("pppt", "ava 4 rows size = " + avatars[4].length);
 
 
         for (int i = 0; i < LANES; i++) {
-            Log.d("pppt", "i = " + i);
             for (int j = 0; j < ROWS; j++) {
-                Log.d("pppt", " j = " + j);
-                //avatars[i][j].setY(0f);
                 barrier[i].add(avatars[i][j]);
             }
-            // Toast.makeText(Game.this, "size = " + barrier[i].size(), Toast.LENGTH_SHORT).show();
 
         }
 
@@ -463,10 +451,8 @@ public class Game extends AppCompatActivity {
                     if ((((int) ((Math.random() * 2)))) == COIN) {
                         startAnim(stack.pop().intValue(), COIN);
 
-                        Log.d("ttttp", "ddcdc");
                     } else {
                         startAnim(stack.pop().intValue(), BARRIER);
-                        Log.d("ttttp", "aaa");
                     }
 
                 }
@@ -635,7 +621,6 @@ public class Game extends AppCompatActivity {
 
     private void coinInvisible(final ImageView coin) {
         coin.setY(cars[1].getY());
-        Log.d("tttp", "y = " + coin.getY());
         coin.setScaleY(1);
         coin.setScaleX(1);
         coin.setRotation(0);
@@ -828,11 +813,39 @@ public class Game extends AppCompatActivity {
     }
 
 
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Log.d("latlag" , "res" );
+//
+//        if (broadcastReceiver == null) {
+//            broadcastReceiver = new BroadcastReceiver() {
+//                @Override
+//                public void onReceive(Context context, Intent intent) {
+//
+//                    latitude = (double) intent.getExtras().get(Constants.LATITUDE_KEY);
+//                    longitude = (double) intent.getExtras().get(Constants.LONGITUDE_KEY);
+//                    Log.d("latlag" , "lat at game = " + latitude + " log= " +longitude);
+//
+//
+//                }
+//            };
+//        }
+//        registerReceiver(broadcastReceiver, new IntentFilter(Constants.ACTION_KEY));
+//
+//        if (gameType == Constants.MOTION_GAME)
+//            mSensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_UI);
+//
+//    }
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
         if (gameType == Constants.MOTION_GAME)
             mSensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_UI);
+
         if (broadcastReceiver == null) {
             broadcastReceiver = new BroadcastReceiver() {
                 @Override
@@ -845,6 +858,7 @@ public class Game extends AppCompatActivity {
             };
         }
         registerReceiver(broadcastReceiver, new IntentFilter(Constants.ACTION_KEY));
+
     }
 
     @Override
@@ -859,6 +873,7 @@ public class Game extends AppCompatActivity {
     private void startGpsService() {
         if (!runtime_permissions()) {
             Intent i = new Intent(getApplicationContext(), GPS_Service.class);
+
             startService(i);
         }
 
