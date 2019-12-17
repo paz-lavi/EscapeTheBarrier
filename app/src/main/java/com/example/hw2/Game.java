@@ -17,6 +17,7 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,16 +42,16 @@ public class Game extends AppCompatActivity {
     private double latitude;
     private double longitude;
     private BroadcastReceiver broadcastReceiver;
-    final int RIGHT = 4, SLOW_SPEED = 750, FAST_SPEED = 450, WAIT_TIME = 3500, SLOW_TICK = 4500, FAST_TICK = 3000;
-    final int LEFT = 0, MAX = 4, MIN = 0, ROWS = 9, MAX_LIFE = 3, BARRIER = 0, COIN = 1, LANES = 5;
+
+    final int LEFT = 0, MAX = 4, MIN = 0;
     ImageView[][] avatars, coins_views;
     ImageView[] cars, hearts, counter;
     ImageView game_IV_rightArrow;
     ImageView game_IV_leftArrow, game_IV_carshcar;
     int pos = 2; //startig possition in the middle
     int score, coins_grabed;
-    int life = 3, gameType = -1, last;
-    float lastAccelerometerX;
+    int life = 3, gameType = -1, last, duration_speed, tick_speed;
+    float lastAccelerometerY;
     boolean continue_game, game_on, go, back_pressed = false, pause = false, first = true, can = false;
     TextView game_TV_score, game_TV_scorecoin;
     Queue<ObjectAnimator> aniQ;
@@ -72,7 +73,8 @@ public class Game extends AppCompatActivity {
         startGpsService();
         typeOfGame();
 
-
+        duration_speed = Constants.SLOW_TICK;
+        tick_speed = Constants.SLOW_SPEED;
         continue_game = true;
         game_on = false;
         go = true;
@@ -189,8 +191,8 @@ public class Game extends AppCompatActivity {
                 , new ConcurrentLinkedQueue<ImageView>()};
 
 
-        for (int i = 0; i < LANES; i++) {
-            for (int j = 0; j < ROWS; j++) {
+        for (int i = 0; i < Constants.LANES; i++) {
+            for (int j = 0; j < Constants.ROWS; j++) {
                 coins_views[i][j].setY(0f);
                 coins[i].add(coins_views[i][j]);
             }
@@ -238,8 +240,8 @@ public class Game extends AppCompatActivity {
                 , new ConcurrentLinkedQueue<ImageView>()};
 
 
-        for (int i = 0; i < LANES; i++) {
-            for (int j = 0; j < ROWS; j++) {
+        for (int i = 0; i < Constants.LANES; i++) {
+            for (int j = 0; j < Constants.ROWS; j++) {
                 barrier[i].add(avatars[i][j]);
             }
 
@@ -273,7 +275,7 @@ public class Game extends AppCompatActivity {
     private void moveCarLeft() {
         if (pos != LEFT) {
             pos--;
-            for (int i = 0; i < LANES; i++) {
+            for (int i = 0; i < Constants.LANES; i++) {
                 if (i == pos) {
                     cars[pos].setVisibility(View.VISIBLE);
                 } else {
@@ -287,9 +289,9 @@ public class Game extends AppCompatActivity {
      * move the car 1 position right. if already at the rightest position this method has no effect
      */
     private void moveCarRight() {
-        if (pos != RIGHT) {
+        if (pos != Constants.RIGHT) {
             pos++;
-            for (int i = 0; i < LANES; i++) {
+            for (int i = 0; i < Constants.LANES; i++) {
                 if (i == pos) {
                     cars[pos].setVisibility(View.VISIBLE);
                 } else {
@@ -303,8 +305,8 @@ public class Game extends AppCompatActivity {
      * set all barrier to invisible
      */
     private void clear() {
-        for (int i = 0; i < LANES; i++) {
-            for (int j = 0; j < ROWS; j++) {
+        for (int i = 0; i < Constants.LANES; i++) {
+            for (int j = 0; j < Constants.ROWS; j++) {
                 avatars[i][j].setVisibility(View.INVISIBLE);
                 coins_views[i][j].setVisibility(View.INVISIBLE);
             }
@@ -314,37 +316,44 @@ public class Game extends AppCompatActivity {
 
 
     private void startAnim(final int col, final int type) {
-        if (!continue_game || !go || back_pressed)
+        if (!continue_game || !go || back_pressed || pause)
             return;
-        if (pause) {
-            return;
-        }
+
         final ImageView iv;
-        if (type == COIN)
+        if (type == Constants.COIN) {
+            Log.d("ssscccdcdc", "coin " + col + "size = " + coins[col].size());
+
             iv = coins[col].poll();
-        else
+        } else {
+            Log.d("ssscccdcdc", "barrier " + col + "size = " + coins[col].size());
+
             iv = barrier[col].poll();
+        }
 
         final float c = cars[1].getY();
         final ObjectAnimator animator = ObjectAnimator.ofFloat(iv, "y", -100, c - 30);
-        animator.setDuration(gameType == Constants.FAST_GAME ? FAST_TICK : SLOW_TICK);
+        animator.setDuration(setDuration());
         animator.setInterpolator(new LinearInterpolator());
         animator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-                iv.setVisibility(View.VISIBLE);
-                aniQ.add(animator);
+                if (iv != null) {
+                    iv.setVisibility(View.VISIBLE);
+                    aniQ.add(animator);
+                }
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
 
                 if (pause) {
+                    Log.d("gcgcc", "pause");
+
                     iv.setVisibility(View.INVISIBLE);
                     return;
                 }
                 if (continue_game && game_on) {
-                    if (type == COIN) {
+                    if (type == Constants.COIN) {
                         if (!grabCoin(col, pos, iv)) {
                             endAnim(iv);
                         }
@@ -368,7 +377,7 @@ public class Game extends AppCompatActivity {
 
             @Override
             public void onAnimationCancel(Animator animation) {
-                if (type == COIN) {
+                if (type == Constants.COIN) {
                     coins[col].add(iv);
                 } else {
                     barrier[col].add(iv);
@@ -377,6 +386,18 @@ public class Game extends AppCompatActivity {
 
             @Override
             public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animator.addPauseListener(new Animator.AnimatorPauseListener() {
+            @Override
+            public void onAnimationPause(Animator animation) {
+                Log.d("cdccdcdc", "pause");
+            }
+
+            @Override
+            public void onAnimationResume(Animator animation) {
+                Log.d("cdccdcdc", "resume");
 
             }
         });
@@ -448,11 +469,11 @@ public class Game extends AppCompatActivity {
                     stack.push(r);
                 }
                 while (!stack.empty()) {
-                    if ((((int) ((Math.random() * 2)))) == COIN) {
-                        startAnim(stack.pop().intValue(), COIN);
+                    if ((((int) ((Math.random() * 2)))) == Constants.COIN) {
+                        startAnim(stack.pop().intValue(), Constants.COIN);
 
                     } else {
-                        startAnim(stack.pop().intValue(), BARRIER);
+                        startAnim(stack.pop().intValue(), Constants.BARRIER);
                     }
 
                 }
@@ -463,7 +484,7 @@ public class Game extends AppCompatActivity {
             }
         };
         handler.postDelayed(
-                myRun, gameType == Constants.FAST_GAME ? FAST_SPEED : SLOW_SPEED);
+                myRun, setSpeed());
 
     }
 
@@ -605,7 +626,7 @@ public class Game extends AppCompatActivity {
             }
         };
         handler.postDelayed(
-                myRun, WAIT_TIME);
+                myRun, Constants.WAIT_TIME);
 
     }
 
@@ -613,7 +634,7 @@ public class Game extends AppCompatActivity {
      * This method sets all hearts to visible
      */
     private void heartDraw() {
-        for (int i = 0; i < MAX_LIFE; i++) {
+        for (int i = 0; i < Constants.MAX_LIFE; i++) {
             hearts[i].setVisibility(View.VISIBLE);
         }
     }
@@ -733,7 +754,6 @@ public class Game extends AppCompatActivity {
         counter[i - 1].setVisibility(View.VISIBLE);
         counter[i - 1].setScaleY(0);
         counter[i - 1].setScaleX(0);
-        // counter[i+1].setRotation(0);
         counter[i - 1].animate()
                 .scaleY(2)
                 .scaleX(2)
@@ -767,10 +787,8 @@ public class Game extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        // Toast.makeText(Game.this, "stop", Toast.LENGTH_SHORT).show();
         pause = true;
         ConcurrentLinkedQueue temp_queue_anim = new ConcurrentLinkedQueue<ObjectAnimator>();
-
         ObjectAnimator o;
 
         while (!aniQ.isEmpty()) {
@@ -780,7 +798,6 @@ public class Game extends AppCompatActivity {
             temp_queue_anim.add(o);
         }
         aniQ = temp_queue_anim;
-        // temp_queue.clear();
     }
 
 
@@ -792,52 +809,27 @@ public class Game extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        pause = false;
-
         if (first) {
 
             first = false;
+            pause = false;
             play();
         } else {
+            ConcurrentLinkedQueue temp_queue_anim = new ConcurrentLinkedQueue<ObjectAnimator>();
             ObjectAnimator o;
 
             while (!aniQ.isEmpty()) {
-//
                 o = aniQ.poll();
                 o.resume();
-            }
+                temp_queue_anim.add(o);
 
+            }
+            aniQ = temp_queue_anim;
+            pause = false;
             loopFunc4();
 
         }
     }
-
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Log.d("latlag" , "res" );
-//
-//        if (broadcastReceiver == null) {
-//            broadcastReceiver = new BroadcastReceiver() {
-//                @Override
-//                public void onReceive(Context context, Intent intent) {
-//
-//                    latitude = (double) intent.getExtras().get(Constants.LATITUDE_KEY);
-//                    longitude = (double) intent.getExtras().get(Constants.LONGITUDE_KEY);
-//                    Log.d("latlag" , "lat at game = " + latitude + " log= " +longitude);
-//
-//
-//                }
-//            };
-//        }
-//        registerReceiver(broadcastReceiver, new IntentFilter(Constants.ACTION_KEY));
-//
-//        if (gameType == Constants.MOTION_GAME)
-//            mSensorManager.registerListener(sensorEventListener, mSensor, SensorManager.SENSOR_DELAY_UI);
-//
-//    }
-
 
 
     @Override
@@ -873,7 +865,6 @@ public class Game extends AppCompatActivity {
     private void startGpsService() {
         if (!runtime_permissions()) {
             Intent i = new Intent(getApplicationContext(), GPS_Service.class);
-
             startService(i);
         }
 
@@ -913,19 +904,7 @@ public class Game extends AppCompatActivity {
     SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
-            sensorChanged(event.values[0] == 0.0f);
-
-            if (event.values[0] > -2f && event.values[0] < 2f && pos != 2)
-                setPos(2);
-            else if (event.values[0] > 2f && event.values[0] < 6f && pos != 0)
-                setPos(1);
-            else if (event.values[0] > 6f && pos != 2)
-                setPos(0);
-            else if (event.values[0] < -2f && event.values[0] > -6f && pos != 3)
-                setPos(3);
-            else if (event.values[0] < -6f && pos != 4)
-                setPos(4);
-
+            sensorChangedHandel(event);
 
         }
 
@@ -935,13 +914,42 @@ public class Game extends AppCompatActivity {
         }
     };
 
-    private void sensorChanged(boolean faceOn) {
+    private void sensorChangedHandel(SensorEvent event) {
+        float temp = Math.abs(lastAccelerometerY) * 1000000000 - Math.abs(event.values[1]) * 1000000000;
+        int delta = (int) temp;
+        Log.d("lastAccelerometerY", "lastAccelerometerY = " + lastAccelerometerY);
+        Log.d("delta", "delta = " + delta);
+        if (event.values[0] > -2f && event.values[0] < 2f && pos != 2)
+            setPos(2);
+        else if (event.values[0] > 2f && event.values[0] < 6f && pos != 1)
+            setPos(1);
+        else if (event.values[0] > 6f && pos != 0)
+            setPos(0);
+        else if (event.values[0] < -2f && event.values[0] > -6f && pos != 3)
+            setPos(3);
+        else if (event.values[0] < -6f && pos != 4)
+            setPos(4);
+        if (event.values[1] > 8f && duration_speed < 6000 && delta > 0) {
+            tick_speed += 10;
+            duration_speed += 50;
+        } else if (event.values[1] < 4.5f && duration_speed > 2000 && delta < 0) {
+            tick_speed -= 10;
+            duration_speed -= 50;
+        }
+
+        lastAccelerometerY = event.values[1];
+
+        ObjectAnimator[] arr = new ObjectAnimator[aniQ.size()];
+        aniQ.toArray(arr);
+        for (ObjectAnimator r : arr) {
+            r.setDuration(setDuration());
+        }
     }
 
 
     private void setPos(int posToSet) {
 
-        for (int i = 0; i < LANES; i++) {
+        for (int i = 0; i < Constants.LANES; i++) {
             pos = posToSet;
             if (i == posToSet) {
                 cars[posToSet].setVisibility(View.VISIBLE);
@@ -950,6 +958,24 @@ public class Game extends AppCompatActivity {
             }
         }
     }
+
+
+    private int setDuration() {
+        if (gameType == Constants.MOTION_GAME) {
+            return duration_speed;
+
+        }
+        return gameType == Constants.FAST_GAME ? Constants.FAST_TICK : Constants.SLOW_TICK;
+    }
+
+    private int setSpeed() {
+
+        if (gameType == Constants.MOTION_GAME)
+            return tick_speed;
+        return gameType == Constants.FAST_GAME ? Constants.FAST_SPEED : Constants.SLOW_SPEED;
+
+    }
 }
+
 
 

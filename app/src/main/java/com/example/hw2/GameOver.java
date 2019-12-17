@@ -45,7 +45,6 @@ public class GameOver extends AppCompatActivity {
         gameover_BT_save = findViewById(R.id.gameover_BT_save);
 
 
-
         Bundle b = getIntent().getExtras();
         if (b != null) {
             Log.d("latlag", "n kbkn");

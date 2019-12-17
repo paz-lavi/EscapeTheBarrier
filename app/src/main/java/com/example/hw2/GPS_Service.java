@@ -20,8 +20,6 @@ public class GPS_Service extends Service {
     private LocationListener listener;
     private LocationManager locationManager;
     private Location mLocation;
-    private double mLatitude;
-    private double mLongitude;
 
 
 
@@ -71,7 +69,6 @@ public class GPS_Service extends Service {
         mLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (mLocation != null) {
-
             Intent i = new Intent(Constants.ACTION_KEY);
             i.putExtra(Constants.LONGITUDE_KEY, mLocation.getLongitude());
             i.putExtra(Constants.LATITUDE_KEY, mLocation.getLatitude());
@@ -82,7 +79,7 @@ public class GPS_Service extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(locationManager != null){
+        if (locationManager != null) {
             //noinspection MissingPermission
             locationManager.removeUpdates(listener);
         }

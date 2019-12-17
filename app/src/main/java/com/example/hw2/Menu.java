@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,7 +62,8 @@ public class Menu extends AppCompatActivity {
         menu_BT_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Menu.this, "Not Available At This Moment", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(Menu.this, Instructions.class);
+                Menu.this.startActivity(i);
             }
         });
 
