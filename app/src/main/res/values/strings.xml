@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Escape The Barrier</string>
     <string name="title_activity_maps">Map</string>
+    <string name="instructions">*Slow and Fast Mode: Use the arrows to move left and right.\n\n
+        *Movement Mode: Tilt right to move right. Tilt left to move left. Tilt forth to increase the speed.
+            Tilt back to decrease the speed.\n</string>
+    <string name="purpose">Collect as many coins as possible and avoid barrier.
+You have three strikes.</string>
 </resources>

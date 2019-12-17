@@ -57,6 +57,9 @@ public class RecordManager {
         }
     }
 
+    /**
+     * writing all record to the file
+     */
     private void write() {
         File sdcard = activity.getApplicationContext()
                 .getFilesDir();
@@ -92,6 +95,9 @@ public class RecordManager {
         }
     }
 
+    /**
+     * reading all record from file and set them as Record arraylist
+     */
     private void read() {
         File sdcard = activity.getApplicationContext().getFilesDir();
         File dir = new File(sdcard.getAbsolutePath() + File.separator + game);
@@ -133,10 +139,17 @@ public class RecordManager {
         }
     }
 
+    /**
+     * @return arraylist of all records
+     */
     public ArrayList getRecords() {
         return records;
     }
 
+    /**
+     * add a new record to the arraylist, sort it and write it to the file.
+     * keep top 10 records
+     */
     public void addRecord(Record r) {
         records.add(r);
         Collections.sort(records);
@@ -146,6 +159,9 @@ public class RecordManager {
         writeToFile();
     }
 
+    /**
+     * @return return the score of the last place. if there is no records return -1
+     */
     public int getLastPlace() {
         if (records.size() > 0)
             return records.get(records.size() - 1).getScore();

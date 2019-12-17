@@ -11,7 +11,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -32,7 +31,6 @@ public class GPS_Service extends Service {
     @SuppressLint("MissingPermission")
     @Override
     public void onCreate() {
-        Log.d("gpssss", "class open ");
 
         listener = new LocationListener() {
             @Override

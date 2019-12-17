@@ -1,4 +1,5 @@
 package com.example.hw2;
+
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CODE = 100;
     private boolean readyToStart = false;
 
+    /**
+     * show splash screen after permission accepted
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -40,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
             readyToStart = true;
     }
 
+    /**
+     * splash screen
+     */
     private void welcome() {
         final Handler handler = new Handler();
         Runnable myRun = new Runnable() {
@@ -57,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * check if all the require permission for the app accepted
+     */
     private boolean checkPermission() {
         int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -71,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * ask for all the require permission for the app
+     */
     private void requestPermission() {
         if (!ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 && !ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -100,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
         } else requestPermission();
     }
 
+    /**
+     * ask for all the require permission for the app
+     */
     private void requestPermissionFirstTime() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 || ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)

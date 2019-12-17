@@ -17,7 +17,6 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -50,7 +49,7 @@ public class Game extends AppCompatActivity {
     ImageView game_IV_leftArrow, game_IV_carshcar;
     int pos = 2; //startig possition in the middle
     int score, coins_grabed;
-    int life = 3, gameType = -1, last, duration_speed, tick_speed;
+    int life = 3, gameType = -1, duration_speed, tick_speed;
     float lastAccelerometerY;
     boolean continue_game, game_on, go, back_pressed = false, pause = false, first = true, can = false;
     TextView game_TV_score, game_TV_scorecoin;
@@ -70,18 +69,27 @@ public class Game extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
 
+        init();
+
+
+    }
+
+    /**
+     * initialize the activity
+     */
+    private void init() {
         startGpsService();
         typeOfGame();
 
-        duration_speed = Constants.SLOW_TICK;
-        tick_speed = Constants.SLOW_SPEED;
+        duration_speed = Constants.SLOW_SPEED;
+        tick_speed = Constants.SLOW_TICK;
         continue_game = true;
         game_on = false;
         go = true;
         score = 0;
         coins_grabed = 0;
         aniQ = new ConcurrentLinkedQueue<>();
-        setCarImageView();
+        setBarrierImageView();
         setCoinsImageView();
 
         sound_car_crash = MediaPlayer.create(Game.this, R.raw.sound_car_crash);
@@ -130,17 +138,13 @@ public class Game extends AppCompatActivity {
 
         }
 
-
-        //  clear();
         showCar();
         heartDraw();
-
-        RecordManager recordManager = new RecordManager(Game.this);
-        last = recordManager.getLastPlace();
-        // Toast.makeText(Game.this, "last =" + last, Toast.LENGTH_SHORT).show();
-
     }
 
+    /**
+     * set the car in pos to visible and the rest to invisible
+     */
     private void showCar() {
         for (int i = 0; i < cars.length; i++) {
 
@@ -151,9 +155,10 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * linking all  the coins to the activity and adding them to coins queue array
+     */
     private void setCoinsImageView() {
-        //barrier image view
         coins_views = new ImageView[][]{
                 {findViewById(R.id.game_IV_coinlfet1), findViewById(R.id.game_IV_coinlfet2),
                         findViewById(R.id.game_IV_coinlfet3), findViewById(R.id.game_IV_coinlfet4),
@@ -201,8 +206,11 @@ public class Game extends AppCompatActivity {
 
     }
 
+    /**
+     * linking all  the barrier to the activity and adding them to coins queue array
+     */
 
-    private void setCarImageView() {
+    private void setBarrierImageView() {
         //barrier image view
         avatars = new ImageView[][]{
                 {findViewById(R.id.game_IV_barrierLeft1), findViewById(R.id.game_IV_barrierLeft2),
@@ -315,17 +323,20 @@ public class Game extends AppCompatActivity {
     }
 
 
+    /**
+     * @param col  number of the lane to show the object.
+     * @param type the type of the object. 1 - coin , 0 - Barrier
+     *             creating and starting animation of coin or barrier . handling animation start , end and cancel
+     */
     private void startAnim(final int col, final int type) {
         if (!continue_game || !go || back_pressed || pause)
             return;
 
         final ImageView iv;
         if (type == Constants.COIN) {
-            Log.d("ssscccdcdc", "coin " + col + "size = " + coins[col].size());
 
             iv = coins[col].poll();
         } else {
-            Log.d("ssscccdcdc", "barrier " + col + "size = " + coins[col].size());
 
             iv = barrier[col].poll();
         }
@@ -347,7 +358,6 @@ public class Game extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
 
                 if (pause) {
-                    Log.d("gcgcc", "pause");
 
                     iv.setVisibility(View.INVISIBLE);
                     return;
@@ -371,7 +381,6 @@ public class Game extends AppCompatActivity {
                 } else {
                     return;
                 }
-
                 aniQ.remove(animator);
             }
 
@@ -389,22 +398,16 @@ public class Game extends AppCompatActivity {
 
             }
         });
-        animator.addPauseListener(new Animator.AnimatorPauseListener() {
-            @Override
-            public void onAnimationPause(Animator animation) {
-                Log.d("cdccdcdc", "pause");
-            }
-
-            @Override
-            public void onAnimationResume(Animator animation) {
-                Log.d("cdccdcdc", "resume");
-
-            }
-        });
         animator.start();
     }
 
-
+    /**
+     * @param col      the number of the lane to check
+     * @param position the position of the car
+     * @param iv       the ImageView of the coin
+     * @return true if the coin collected , false if not
+     * check if the coin collected by the car. if collected playing a sound, updating the counter and send iv to collect animation
+     */
     private boolean grabCoin(int col, int position, ImageView iv) {
         if (col == position) {
             game_TV_scorecoin.setText("" + ++coins_grabed);
@@ -416,6 +419,10 @@ public class Game extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * @param iv ImageView for animation
+     *           fade out a ImageView from the screen
+     */
     private void endAnim(final ImageView iv) {
 
 
@@ -442,9 +449,7 @@ public class Game extends AppCompatActivity {
 
 
     /**
-     * this method calling herself and scrolls a random number used as index to the column for the loopFunc3 method.
-     * calling "loopFunc3" with a random col index and 0 row index
-     * if the flags is set to false this method return without affect.
+     * this method calling herself and scrolls a random numbers used as number of lane to show am object and the type of the object.
      */
     private void loopFunc4() {
         if (!continue_game || back_pressed || pause)
@@ -484,10 +489,13 @@ public class Game extends AppCompatActivity {
             }
         };
         handler.postDelayed(
-                myRun, setSpeed());
+                myRun, setTick());
 
     }
 
+    /**
+     * scrolls a random numbers between MIN and MAX
+     */
     private int rand() {
         return (int) ((Math.random() * ((MAX - MIN) + 1)) + MIN);
     }
@@ -639,7 +647,10 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * @param coin - the collected coin that should be invisible
+     *             animation for collected coin
+     */
     private void coinInvisible(final ImageView coin) {
         coin.setY(cars[1].getY());
         coin.setScaleY(1);
@@ -677,7 +688,10 @@ public class Game extends AppCompatActivity {
                 .start();
     }
 
-
+    /**
+     * @param i - index for the heart that should be invisible
+     *          animation for setting a heart ImageView invisible
+     */
     private void heartInvisible(final int i) {
         hearts[i].setScaleY(1);
         hearts[i].setScaleX(1);
@@ -713,6 +727,9 @@ public class Game extends AppCompatActivity {
                 .start();
     }
 
+    /**
+     * animation to show after the car collided with a barrier
+     */
     private void carAnimation() {
         game_IV_carshcar.setVisibility(View.VISIBLE);
         game_IV_carshcar.setScaleY(1);
@@ -750,6 +767,10 @@ public class Game extends AppCompatActivity {
     }
 
 
+    /**
+     * @param i - the number to show
+     *          animate a number on the screen
+     */
     private void counterAnimation(final int i) {
         counter[i - 1].setVisibility(View.VISIBLE);
         counter[i - 1].setScaleY(0);
@@ -780,10 +801,12 @@ public class Game extends AppCompatActivity {
                 })
                 //just wanted to show you possible methods you can add more
                 .setDuration(1000)
-                .setInterpolator(new DecelerateInterpolator())
                 .start();
     }
 
+    /**
+     * on stop pause all active animation and signal the game is stop
+     */
     @Override
     protected void onStop() {
         super.onStop();
@@ -803,7 +826,8 @@ public class Game extends AppCompatActivity {
 
     /**
      * first time called - start a new game
-     * else continue the game from the last state. getting the index from the queue and call again to loopFunc3() from the index that stop
+     * else continue the game from the last state.
+     * resume all the paused animation and signal the game is on
      */
     @Override
     protected void onStart() {
@@ -831,7 +855,10 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * on movement game register sensor listener
+     * register broadcast Receiver for gps update
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -861,7 +888,9 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * start a gps service
+     */
     private void startGpsService() {
         if (!runtime_permissions()) {
             Intent i = new Intent(getApplicationContext(), GPS_Service.class);
@@ -870,6 +899,9 @@ public class Game extends AppCompatActivity {
 
     }
 
+    /**
+     * request gps permissions on runtime
+     */
     private boolean runtime_permissions() {
         if (Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -894,12 +926,16 @@ public class Game extends AppCompatActivity {
     }
 
 
+    /**
+     * on movement mode unregister sensor listener
+     */
     @Override
     protected void onPause() {
         super.onPause();
         if (gameType == Constants.MOTION_GAME)
             mSensorManager.unregisterListener(sensorEventListener);
     }
+
 
     SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
@@ -914,11 +950,14 @@ public class Game extends AppCompatActivity {
         }
     };
 
+    /**
+     * handling  sensor changed .
+     * setting the car position depending the phone tilt to the side.
+     * updating animation duration (in/decrease game speed) depending the phone tilt to forth and back
+     */
     private void sensorChangedHandel(SensorEvent event) {
         float temp = Math.abs(lastAccelerometerY) * 1000000000 - Math.abs(event.values[1]) * 1000000000;
         int delta = (int) temp;
-        Log.d("lastAccelerometerY", "lastAccelerometerY = " + lastAccelerometerY);
-        Log.d("delta", "delta = " + delta);
         if (event.values[0] > -2f && event.values[0] < 2f && pos != 2)
             setPos(2);
         else if (event.values[0] > 2f && event.values[0] < 6f && pos != 1)
@@ -946,7 +985,9 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * set car position at movement mode
+     */
     private void setPos(int posToSet) {
 
         for (int i = 0; i < Constants.LANES; i++) {
@@ -959,20 +1000,23 @@ public class Game extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * @return duration time for animation depending the game mode
+     */
     private int setDuration() {
         if (gameType == Constants.MOTION_GAME) {
             return duration_speed;
-
         }
-        return gameType == Constants.FAST_GAME ? Constants.FAST_TICK : Constants.SLOW_TICK;
+        return gameType == Constants.FAST_GAME ? Constants.FAST_SPEED : Constants.SLOW_SPEED;
     }
 
-    private int setSpeed() {
-
+    /**
+     * @return tick time for new animations post delay depending the game mode
+     */
+    private int setTick() {
         if (gameType == Constants.MOTION_GAME)
             return tick_speed;
-        return gameType == Constants.FAST_GAME ? Constants.FAST_SPEED : Constants.SLOW_SPEED;
+        return gameType == Constants.FAST_GAME ? Constants.FAST_TICK : Constants.SLOW_TICK;
 
     }
 }

@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Menu extends AppCompatActivity {
-    Button menu_BT_slow, menu_BT_fast, menu_BT_move, menu_BT_high, menu_BT_settings;
+    Button menu_BT_slow, menu_BT_fast, menu_BT_move, menu_BT_high, menu_BT_instructions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,33 +21,46 @@ public class Menu extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_menu);
 
+        init();
+
+    }
+
+
+    /**
+     * initialize the activity
+     */
+    private void init() {
 
         menu_BT_slow = findViewById(R.id.menu_BT_slow);
         menu_BT_fast = findViewById(R.id.menu_BT_fast);
         menu_BT_move = findViewById(R.id.menu_BT_move);
         menu_BT_high = findViewById(R.id.menu_BT_high);
-        menu_BT_settings = findViewById(R.id.menu_BT_settings);
+        menu_BT_instructions = findViewById(R.id.menu_BT_instructions);
+
+        configureButtons();
+
+    }
+
+    private void configureButtons() {
+
 
         menu_BT_slow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeIntant(Constants.SLOW_GAME);
-
+                makeIntent(Constants.SLOW_GAME);
             }
         });
-
-
         menu_BT_fast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeIntant(Constants.FAST_GAME);
+                makeIntent(Constants.FAST_GAME);
 
             }
         });
         menu_BT_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeIntant(Constants.MOTION_GAME);
+                makeIntent(Constants.MOTION_GAME);
             }
         });
         menu_BT_high.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +72,7 @@ public class Menu extends AppCompatActivity {
 
             }
         });
-        menu_BT_settings.setOnClickListener(new View.OnClickListener() {
+        menu_BT_instructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this, Instructions.class);
@@ -69,7 +82,11 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    private void makeIntant(int gameType) {
+    /**
+     * @param gameType - game mode slow speed or movement
+     *                 make intent to the game activity , sending the index for the game mode
+     */
+    private void makeIntent(int gameType) {
         Intent myIntent = new Intent(Menu.this, Game.class);
         Bundle b = new Bundle();
         b.putInt(Constants.TYPE_KEY, gameType);

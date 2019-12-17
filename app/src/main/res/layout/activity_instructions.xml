@@ -7,15 +7,77 @@
     tools:context=".Instructions">
 
 
-    <TextView
-        android:id="@+id/instructions_LBL_text"
+    <Button
+        android:id="@+id/instructions_BT_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColor="@color/textColor"
-        android:textSize="36dp" />
+        android:text="Back To Menu"
+        android:textColor="@color/backgroundColor"
+        android:backgroundTint="@color/btBackColor"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/instructions_LBL_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/textColor"
+            android:textSize="36sp"
+            android:layout_gravity="center_horizontal"
+            android:text="PURPOSE OF \n THE GAME:" />
+
+        <TextView
+            android:id="@+id/instructions_LBL_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:text="@string/purpose"
+
+            />
+
+
+        <TextView
+            android:id="@+id/instructions_LBL_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:text="INSTRUCTIONS:"
+            android:textColor="@color/textColor"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/instructions_LBL_text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/textColor"
+            android:textSize="24sp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/instructions" />
+
+    </LinearLayout>
+
 </RelativeLayout>

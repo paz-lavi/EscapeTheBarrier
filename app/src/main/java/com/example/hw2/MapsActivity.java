@@ -41,6 +41,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_maps);
+
+        init();
+
+
+    }
+
+    /**
+     * initialize the activity
+     */
+    private void init() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -62,14 +72,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         locations = new LatLng[records.size()];
         fillPlacesList();
 
-
     }
 
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
+     * we just add a marker where every record was reached and move the camera for the 1st place
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.

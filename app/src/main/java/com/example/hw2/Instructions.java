@@ -1,14 +1,15 @@
 package com.example.hw2;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Instructions extends AppCompatActivity {
-    TextView instructions_LBL_text;
+    Button instructions_BT_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,13 @@ public class Instructions extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_instructions);
 
-        instructions_LBL_text = findViewById(R.id.instructions_LBL_text);
-        instructions_LBL_text.setText(Constants.INSTRUCTIONS);
+        instructions_BT_back = findViewById(R.id.instructions_BT_back);
+        instructions_BT_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }
