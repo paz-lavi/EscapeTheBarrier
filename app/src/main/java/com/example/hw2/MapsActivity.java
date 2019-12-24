@@ -111,7 +111,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     };
 
     private void fillPlacesList() {
-        // Set up an ArrayAdapter to convert likely places into TextViews to populate the ListView
         ArrayAdapter<Record> placesAdapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, records);
         maps_LSTV_list.setAdapter(placesAdapter);

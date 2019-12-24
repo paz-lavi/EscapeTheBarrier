@@ -42,21 +42,21 @@ public class Game extends AppCompatActivity {
     private double longitude;
     private BroadcastReceiver broadcastReceiver;
 
-    final int LEFT = 0, MAX = 4, MIN = 0;
-    ImageView[][] avatars, coins_views;
-    ImageView[] cars, hearts, counter;
-    ImageView game_IV_rightArrow;
-    ImageView game_IV_leftArrow, game_IV_carshcar;
-    int pos = 2; //startig possition in the middle
-    int score, coins_grabed;
-    int life = 3, gameType = -1, duration_speed, tick_speed;
-    float lastAccelerometerY;
-    boolean continue_game, game_on, go, back_pressed = false, pause = false, first = true, can = false;
-    TextView game_TV_score, game_TV_scorecoin;
-    Queue<ObjectAnimator> aniQ;
-    Queue<ImageView>[] barrier, coins;
-    MediaPlayer sound_coin;
-    MediaPlayer sound_car_crash;
+    private final int LEFT = 0, MAX = 4, MIN = 0;
+    private ImageView[][] avatars, coins_views;
+    private ImageView[] cars, hearts, counter;
+    private ImageView game_IV_rightArrow;
+    private ImageView game_IV_leftArrow, game_IV_carshcar;
+    private int pos = 2; //startig possition in the middle
+    private int score, coins_grabed;
+    private int life = 3, gameType = -1, duration_speed, tick_speed;
+    private float lastAccelerometerY;
+    private boolean continue_game, game_on, go, back_pressed = false, pause = false, first = true, can = false;
+    private TextView game_TV_score, game_TV_scorecoin;
+    private Queue<ObjectAnimator> aniQ;
+    private Queue<ImageView>[] barrier, coins;
+    private MediaPlayer sound_coin;
+    private MediaPlayer sound_car_crash;
     private SensorManager mSensorManager;
     private Sensor mSensor;
 

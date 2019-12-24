@@ -21,7 +21,6 @@ public class GPS_Service extends Service {
     private Location mLocation;
 
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {

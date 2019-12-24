@@ -9,7 +9,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Instructions extends AppCompatActivity {
-    Button instructions_BT_back;
+    private Button instructions_BT_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

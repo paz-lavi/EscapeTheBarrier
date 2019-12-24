@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Menu extends AppCompatActivity {
-    Button menu_BT_slow, menu_BT_fast, menu_BT_move, menu_BT_high, menu_BT_instructions;
+    private Button menu_BT_slow, menu_BT_fast, menu_BT_move, menu_BT_high, menu_BT_instructions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
